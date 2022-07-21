@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/rubak/.gradle/caches/transforms-3/74292be9cb686a095a4a0d900254dd59/transformed/appcompat-1.4.2/res/layout/support_simple_spinner_dropdown_item.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/badge_shape.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/button_background.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/headerdesign.xml" value="0.106" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_cart.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_home.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_key_vector.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_location.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_others.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_pre_bg.xml" value="0.1405" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_slider_arrow.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_slider_bg.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_tick.xml" value="0.113" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/ic_work.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/image_bk.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/login_button_bk.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/drawable/splash_bk.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_change_password.xml" value="0.22" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_dashboard.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_entry.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_forgot_password.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_logout_success.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_otp_verification.xml" value="0.22" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_payment.xml" value="0.11515378844711177" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_payment_success.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_phone_login.xml" value="0.22" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/activity_slider.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/back_arrow.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/custom_list_item.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_add_family.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_add_to_cart.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_appontments.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_container.xml" value="0.10287303058387395" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_dash_board.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_dashboard.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_home.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_home_collections.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_logout_success.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_my_account.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_my_address.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_my_report.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_my_test.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_patient_details.xml" value="0.19672131147540983" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_payment_report.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_prescription.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_profile_login.xml" value="0.11646433990895295" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_profile_setting.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_slider_first_screen.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_test.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_test_detail.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_uploaded_prescription.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/fragment_userprofile.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/layout_login.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/layout_register.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/list_item_cart.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/list_item_dashboard.xml" value="0.1" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/list_item_dashbord.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/list_item_family.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/list_item_prescription.xml" value="0.3946135831381733" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/list_item_test.xml" value="0.22" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/list_item_userprofile.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/list_my_test.xml" value="0.22" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/list_time_test_details.xml" value="0.14407866609662248" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/password_success.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/patiet_details.xml" value="0.127845220030349" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/register_details.xml" value="0.14130434782608695" />
+        <entry key="..\:/Users/rubak/AndroidStudioProjects/PrimeGen2/app/src/main/res/layout/social_login_sign_up.xml" value="0.14130434782608695" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

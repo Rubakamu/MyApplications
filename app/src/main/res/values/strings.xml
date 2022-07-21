@@ -1,0 +1,175 @@
+<resources>
+    <string name="app_name">PrimeGen</string>
+
+    <string name="register">REGISTER</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="signup_login_hint">Already have an account?</string>
+    <string name="login_signup_hint">Don\'t have an account?</string>
+    <string name="login_name_hint">Name</string>
+    <string name="login_mobile_number_hint">Mobile Number</string>
+    <string name="welcome">Welcome</string>
+    <string name="upload">Upload</string>
+    <string name="logout">Logout</string>
+    <string name="need">Need</string>
+    <string name="medical_help">Medical Help?</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="let_s_start_discuss_with_us">Let\'s start discuss with us!</string>
+    <string name="health_medical"><![CDATA[HEALTH & MEDICAL]]></string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="or_sing_up_with">Or Sing Up with</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="enter_your_details_to_create_account">Enter Your details to create account</string>
+    <string name="name">Name</string>
+
+    <string name="first_slider_first_text">Book Lab Tests From Home</string>
+    <string name="first_slider_second_text">Safe sample collection at home by</string>
+    <string name="first_slider_third_text">trained staff...</string>
+
+    <string name="second_slider_first_text">Free Home Sample Collection</string>
+    <string name="second_slider_second_text">A certified sample collector will collect your</string>
+    <string name="second_slider_third_text"> samples free of cost from your home... </string>
+
+    <string name="third_slider_first_text">Digital Report Bank</string>
+    <string name="third_slider_second_text">Store reports for life. Access them</string>
+    <string name="third_slider_third_text"> anytime, anywhere.</string>
+
+    <string name="phone_number_text">We have sent you on SMS with a code to number</string>
+    <string name="phone">Phone</string>
+    <string name="verify_phone_number">Verify Phone Number</string>
+    <string name="forgot_password_">Forgot Password</string>
+    <string name="forgot_password_text">Please enter your email address. You will receive a link to create a new password via email.</string>
+    <string name="email_address">Email Address</string>
+    <string name="change">Change</string>
+    <string name="your_password_has_been_reset">Your password has</string>
+    <string name="been_reset">been reset !</string>
+    <string name="done">Done</string>
+    <string name="change_password">Change Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="new_password">New Password</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="title_activity_bottom">BottomActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="user_profile">User Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="top_diagnostic">Top Diagnostic</string>
+    <string name="find_the_best_diagnostic_in_your_city">Find the best diagnostic in your city</string>
+    <string name="search">Search here…</string>
+    <string name="sample_pickup_from">Sample pickup from</string>
+    <string name="select">select</string>
+    <string name="remove">Remove</string>
+    <string name="add_to_card">Add to Cart</string>
+    <string name="test_details">Test_Details</string>
+    <string name="add_more_test">Add More Test</string>
+    <string name="primegen_labs">PrimeGen Labs</string>
+    <string name="free_e_report">Free E-Report will be sent to your \nRegister email ID</string>
+    <string name="include_physical_copy">Include physical copy of the report</string>
+    <string name="charges_application_49">Charges application ₹49</string>
+    <string name="payment_summary">Payment Summary</string>
+    <string name="order_total">Order Total</string>
+    <string name="items_discount">Items Discount</string>
+    <string name="coupon_discount">Coupon Discount</string>
+    <string name="shipping">Shipping</string>
+    <string name="total">Total</string>
+    <string name="select_patient_details">Select Patient Details</string>
+    <string name="patient_details">Patient Details</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="full_name">Full Name</string>
+    <string name="age">Age</string>
+    <string name="gender">Gender</string>
+    <string name="sample_pickup_address">Sample Pickup Address</string>
+    <string name="mobile_no">Mobile No</string>
+    <string name="pincode">Pincode</string>
+    <string name="address_1">Address1</string>
+    <string name="address_2">Address2</string>
+    <string name="address_type">Address Type</string>
+    <string name="work">Work</string>
+    <string name="others">Others</string>
+    <string name="select_appointment_date">Select Appointment Date</string>
+    <string name="select_appointment_time">Select Appointment Time</string>
+    <string name="select_payment_Mode">Select Payment Mode</string>
+    <string name="confirm">Confirm</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="online">Online</string>
+    <string name="cash">Cash</string>
+    <string name="got_it">Got it</string>
+    <string name="your_payment_has_been_done_successfully">Your payment has been\ndone Successfully</string>
+    <string name="support">Support</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="appointment">Appointment</string>
+    <string name="home_collections">Home Collections</string>
+    <string name="my_test">My Test</string>
+    <string name="my_report">My Report</string>
+    <string name="payment">Payment</string>
+    <string name="my_address">My Address</string>
+    <string name="settings">Settings</string>
+    <string name="upload_prescription">Upload Prescriptions</string>
+    <string name="upload_your_prescription_here">Upload your Prescription here</string>
+    <string name="upload_your_prescription_which_you_receive">Upload your Prescription which you receive</string>
+    <string name="from_booking_test">from Booking test</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="gallery">Gallery</string>
+    <string name="valid_prescription_tips">Valid Prescription Tips</string>
+    <string name="doctor_details">Doctor Details</string>
+    <string name="uploaded_prescription">Uploaded Prescription</string>
+    <string name="next">Next</string>
+    <string name="my_account">My Account</string>
+    <string name="last_name">Last Name</string>
+    <string name="username">Username/Phone</string>
+    <string name="location">Location</string>
+    <string name="account_info">Acount Info</string>
+    <string name="personal_info">Personal Info</string>
+    <string name="edit">Edit</string>
+    <string name="email">Email</string>
+    <string name="home">Home</string>
+    <string name="office">Office</string>
+    <string name="rebook">Rebooking</string>
+    <string name="log_out">Log Out?</string>
+    <string name="are_you_sure_you_want_to_logout">Are you sure you want to logout?</string>
+    <string name="cancel">Cancel</string>
+    <string name="download">Download</string>
+    <string name="add_new_family_member">Add Family Member</string>
+    <string name="family_info">Family Info</string>
+    <string name="family_history">Family History</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="city">City</string>
+    <string name="choose_your_relationship">Choose your relationship</string>
+    <string name="please_login_to_see_your_profile">Please Login to see your Profile</string>
+    <string name="go_to_login">Go to Login</string>
+    <string name="otp_text_one">Enter 4 digit OTP sent to your registered mobile number</string>
+    <string name="otp_text_two">associated with your Primegen account.</string>
+    <string name="your_otp">Your Otp</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="verify">Verify</string>
+    <string name="submit">Submit</string>
+    <string name="title">Title</string>
+    <string name="password">Password</string>
+
+
+    <string-array name="countries">
+        <item>Chennai</item>
+        <item>Coimbatore</item>
+        <item>Madurai</item>
+        <item>Dindigul</item>
+        <item>Theni</item>
+    </string-array>
+
+    <string-array name="relation">
+        <item>Mother</item>
+        <item>Father</item>
+        <item>Sister</item>
+        <item>Brother</item>
+        <item>Grandfather</item>
+        <item>Grandmother</item>
+    </string-array>
+
+
+</resources>

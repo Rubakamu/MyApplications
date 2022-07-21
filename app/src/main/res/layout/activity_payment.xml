@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".profile.PatientDetailsFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card2"
+            style="@style/MyCardView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            app:cardBackgroundColor="@color/layout_bg"
+            app:cardElevation="@dimen/dp_36"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/back"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_6"
+                android:outlineSpotShadowColor="#073673"
+                android:padding="@dimen/dp_26"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/dp_6"
+                app:cardElevation="@dimen/dp_10"
+                app:cardMaxElevation="@dimen/dp_12"
+                app:cardPreventCornerOverlap="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/dp_6"
+                    android:src="@drawable/ic_back_arrow"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </com.google.android.material.card.MaterialCardView>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnConfirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card2">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/card2">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/carePaymentSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_16"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dp_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/summary"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_50"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="@dimen/dp_10"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvPersonalDetails"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp_16"
+                                android:layout_marginTop="@dimen/dp_10"
+                                android:text="@string/personal_details"
+                                android:textColor="@color/primary_color"
+                                android:textSize="@dimen/sp_20"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tvInclude" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/card_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp_16"
+                            android:padding="@dimen/dp_16"
+                            app:cardCornerRadius="@dimen/dp_6"
+                            app:cardElevation="@dimen/dp_6"
+                            app:layout_constraintTop_toBottomOf="@+id/summary">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tvEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_50"
+                                android:paddingTop="@dimen/dp_8"
+                                app:layout_constraintStart_toStartOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edtEmail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:autofillHints="name"
+                                    android:background="@null"
+                                    android:hint="@string/full_name"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:paddingStart="@dimen/dp_8"
+                                    android:textColor="@color/primary_color"
+                                    android:textColorHint="@color/primary_color"
+                                    android:textSize="@dimen/sp_16"
+                                    app:hintTextColor="@color/primary_color" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/card_age"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp_16"
+                            android:padding="@dimen/dp_16"
+                            app:cardCornerRadius="@dimen/dp_6"
+                            app:cardElevation="@dimen/dp_6"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/card_gender"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/card_name">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tvAge"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_50"
+                                android:paddingTop="@dimen/dp_8"
+                                app:layout_constraintStart_toStartOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edtAge"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:autofillHints="name"
+                                    android:background="@null"
+                                    android:hint="@string/age"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:paddingStart="@dimen/dp_8"
+                                    android:textColor="@color/primary_color"
+                                    android:textColorHint="@color/primary_color"
+                                    android:textSize="@dimen/sp_16"
+                                    app:hintTextColor="@color/primary_color" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/card_gender"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp_16"
+                            android:padding="@dimen/dp_16"
+                            app:cardCornerRadius="@dimen/dp_6"
+                            app:cardElevation="@dimen/dp_6"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/card_age"
+                            app:layout_constraintTop_toBottomOf="@+id/card_name">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/tvGender"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_50"
+                                android:paddingTop="@dimen/dp_8"
+                                app:layout_constraintStart_toStartOf="parent">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edtGender"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:autofillHints="name"
+                                    android:background="@null"
+                                    android:hint="@string/gender"
+                                    android:inputType="text"
+                                    android:maxLines="1"
+                                    android:paddingStart="@dimen/dp_8"
+                                    android:textColor="@color/primary_color"
+                                    android:textColorHint="@color/primary_color"
+                                    android:textSize="@dimen/sp_16"
+                                    app:hintTextColor="@color/primary_color" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAddName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sp_26"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:text="@string/sample_pickup_address"
+                    android:textColor="@color/primary_color"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/carePaymentSummary" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_16"
+                    app:cardElevation="@dimen/dp_4"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddName">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tvName"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_50"
+                            android:layout_margin="@dimen/dp_16"
+                            android:paddingTop="@dimen/dp_8"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edtName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:background="@null"
+                                android:hint="@string/full_name"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dp_8"
+                                android:textColor="@color/primary_color"
+                                android:textColorHint="@color/primary_color"
+                                android:textSize="@dimen/sp_16"
+                                app:hintTextColor="@color/primary_color" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tvMobile"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_50"
+                            android:layout_margin="@dimen/dp_16"
+                            android:paddingTop="@dimen/dp_8"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvName">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edtMobile"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:background="@null"
+                                android:hint="@string/mobile_no"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dp_8"
+                                android:textColor="@color/primary_color"
+                                android:textColorHint="@color/primary_color"
+                                android:textSize="@dimen/sp_16"
+                                app:hintTextColor="@color/primary_color" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tvPincode"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_50"
+                            android:layout_margin="@dimen/dp_16"
+                            android:paddingTop="@dimen/dp_8"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvMobile">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edtPincode"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:background="@null"
+                                android:hint="@string/pincode"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dp_8"
+                                android:textColor="@color/primary_color"
+                                android:textColorHint="@color/primary_color"
+                                android:textSize="@dimen/sp_16"
+                                app:hintTextColor="@color/primary_color" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tvAddress1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_50"
+                            android:layout_margin="@dimen/dp_16"
+                            android:paddingTop="@dimen/dp_8"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvPincode">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edtAddress1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:background="@null"
+                                android:hint="@string/address_1"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dp_8"
+                                android:textColor="@color/primary_color"
+                                android:textColorHint="@color/primary_color"
+                                android:textSize="@dimen/sp_16"
+                                app:hintTextColor="@color/primary_color" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tvAddress2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_50"
+                            android:layout_margin="@dimen/dp_16"
+                            android:paddingTop="@dimen/dp_8"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvAddress1">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edtAddress2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="name"
+                                android:background="@null"
+                                android:hint="@string/address_2"
+                                android:inputType="text"
+                                android:maxLines="1"
+                                android:paddingStart="@dimen/dp_8"
+                                android:textColor="@color/primary_color"
+                                android:textColorHint="@color/primary_color"
+                                android:textSize="@dimen/sp_16"
+                                app:hintTextColor="@color/primary_color" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvAddType"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/sp_26"
+                            android:layout_marginTop="@dimen/dp_16"
+                            android:text="@string/address_type"
+                            android:background="@color/white"
+                            android:textColor="@color/primary_color"
+                            android:textSize="@dimen/sp_16"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvAddress2" />
+
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnHome"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_16"
+                            android:layout_marginBottom="@dimen/dp_16"
+                            android:background="@drawable/button_background"
+                            android:backgroundTint="@color/primary_layout_bg"
+                            android:drawableStart="@drawable/ic_home"
+                            android:drawableTint="@color/white"
+                            android:paddingStart="@dimen/dp_6"
+                            android:text="@string/title_home"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btnWork"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvAddType" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnWork"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_16"
+                            android:layout_marginBottom="@dimen/dp_16"
+                            android:background="@drawable/button_background"
+                            android:backgroundTint="@color/white"
+                            android:drawableStart="@drawable/ic_work"
+                            android:paddingStart="@dimen/dp_6"
+                            android:text="@string/work"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_color"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btnOthers"
+                            app:layout_constraintStart_toEndOf="@+id/btnHome"
+                            app:layout_constraintTop_toBottomOf="@+id/tvAddType"
+
+
+                            />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnOthers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp_16"
+                            android:layout_marginBottom="@dimen/dp_16"
+                            android:background="@drawable/button_background"
+                            android:backgroundTint="@color/white"
+                            android:drawableStart="@drawable/ic_others"
+                            android:paddingStart="@dimen/dp_6"
+                            android:text="@string/others"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_color"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/btnWork"
+                            app:layout_constraintTop_toBottomOf="@+id/tvAddType" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <include
+                    android:id="@+id/selectMode"
+                    layout="@layout/patiet_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/cardAddress"
+                    tools:layout_editor_absoluteX="0dp" />
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardPayment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginEnd="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_16"
+                    app:cardCornerRadius="@dimen/dp_16"
+                    app:cardElevation="@dimen/dp_6"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/selectMode">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/payment"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_50"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="@dimen/dp_10"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvPayment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp_16"
+                                android:layout_marginTop="@dimen/dp_10"
+                                android:text="@string/select_payment_Mode"
+                                android:textColor="@color/primary_color"
+                                android:textSize="@dimen/sp_20"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                        <RadioGroup
+                            android:id="@+id/paymentMode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp_16"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/payment">
+
+                            <RadioButton
+                                android:id="@+id/online"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/online"
+                                android:buttonTint="@color/primary_layout_bg"
+                                android:background="@color/white"
+                                android:textSize="@dimen/sp_20"
+                                android:textColor="@color/primary_color"
+
+                                />
+
+                            <RadioButton
+                                android:id="@+id/cash"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_16"
+                                android:text="@string/cash"
+                                android:buttonTint="@color/primary_layout_bg"
+                                android:background="@color/white"
+                                android:textSize="@dimen/sp_20"
+                                android:textColor="@color/primary_color"/>
+                        </RadioGroup>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:layout_marginBottom="@dimen/dp_2"
+            android:background="@drawable/button_background"
+            android:backgroundTint="@color/primary_layout_bg"
+            android:text="@string/confirm"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

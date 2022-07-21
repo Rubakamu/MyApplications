@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.primegen.home.DashBoardFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_dash_board">
+
+        <action
+            android:id="@+id/action_home_to_home_detail"
+            app:destination="@id/navigation_dashboard" />
+
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+
+        <action
+            android:id="@+id/action_upload_prescription"
+            app:destination="@id/navigation_upload_prescription" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.primegen.test.TestFragment"
+        android:label="Test List"
+        tools:layout="@layout/fragment_test">
+
+        <action
+            android:id="@+id/action_test_to_test_detail"
+            app:destination="@id/navigation_TestDetails" />
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_TestDetails"
+        android:name="com.example.primegen.test.TestDetailFragment"
+        android:label="@string/test_details"
+        tools:layout="@layout/fragment_test_detail">
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_userprofile"
+        android:name="com.example.primegen.profile.UserprofileFragment"
+        android:label="@string/user_profile"
+        tools:layout="@layout/fragment_userprofile">
+
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+
+        <action
+            android:id="@+id/action_home"
+            app:destination="@id/navigation_home" />
+
+        <action
+            android:id="@+id/action_appointment"
+            app:destination="@id/navigation_appointment" />
+
+        <action
+            android:id="@+id/action_home_collection"
+            app:destination="@id/navigation_home_collections" />
+
+        <action
+            android:id="@+id/action_my_test"
+            app:destination="@id/navigation_my_test" />
+
+        <action
+            android:id="@+id/action_my_report"
+            app:destination="@id/navigation_my_report" />
+
+        <action
+            android:id="@+id/action_my_payment"
+            app:destination="@id/navigation_my_payment" />
+
+        <action
+            android:id="@+id/action_my_address"
+            app:destination="@id/navigation_my_address" />
+        <action
+            android:id="@+id/action_my_account"
+            app:destination="@id/navigation_my_account" />
+        <action
+            android:id="@+id/action_settings"
+            app:destination="@id/navigation_settings" />
+
+        <action
+            android:id="@+id/action_family"
+            app:destination="@id/navigation_family" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_add_cart"
+        android:name="com.example.primegen.cart.AddToCartFragment"
+        android:label="@string/add_to_card"
+        tools:layout="@layout/fragment_add_to_cart">
+
+        <action
+            android:id="@+id/action_patient_details"
+            app:destination="@id/navigation_patient_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_patient_details"
+        android:name="com.example.primegen.profile.PatientDetailsFragment"
+        android:label="@string/patient_details"
+        tools:layout="@layout/fragment_patient_details">
+
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_appointment"
+        android:name="com.example.primegen.profile.appointments.AppointmentsFragment"
+        android:label="@string/appointment"
+        tools:layout="@layout/fragment_appontments">
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_home_collections"
+        android:name="com.example.primegen.profile.home_collection.HomeCollectionsFragment"
+        android:label="@string/home_collections"
+        tools:layout="@layout/fragment_home_collections">
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_test"
+        android:name="com.example.primegen.profile.my_test.MyTestFragment"
+        android:label="@string/my_test"
+        tools:layout="@layout/fragment_my_test">
+
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_report"
+        android:name="com.example.primegen.profile.my_report.MyReportFragment"
+        android:label="@string/my_report"
+        tools:layout="@layout/fragment_my_report">
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_payment"
+        android:name="com.example.primegen.profile.payment_report.PaymentReportFragment"
+        android:label="@string/payment"
+        tools:layout="@layout/fragment_payment_report">
+
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_my_address"
+        android:name="com.example.primegen.profile.my_address.MyAddressFragment"
+        android:label="@string/my_address"
+        tools:layout="@layout/fragment_my_address">
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_my_account"
+        android:name="com.example.primegen.profile.my_account.MyAccountFragment"
+        android:label="@string/my_account"
+        tools:layout="@layout/fragment_my_account">
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.example.primegen.profile.settings.ProfileSettingFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_profile_setting">
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_upload_prescription"
+        android:name="com.example.primegen.prescription.PrescriptionFragment"
+        android:label="@string/upload_prescription"
+        tools:layout="@layout/fragment_prescription">
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+
+        <action
+            android:id="@+id/action_uploaded_prescription"
+            app:destination="@id/navigation_uploaded_prescription" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_uploaded_prescription"
+        android:name="com.example.primegen.prescription.UploadedPrescriptionFragment"
+        android:label="@string/uploaded_prescription"
+        tools:layout="@layout/fragment_uploaded_prescription">
+
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+        <action
+            android:id="@+id/action_home"
+            app:destination="@id/navigation_home" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_family"
+        android:name="com.example.primegen.profile.family.AddFamilyFragment"
+        android:label="@string/add_new_family_member"
+        tools:layout="@layout/fragment_add_family">
+
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+        <action
+            android:id="@+id/action_home"
+            app:destination="@id/navigation_home" />
+
+    </fragment>
+
+
+</navigation>
