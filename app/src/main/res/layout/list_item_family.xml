@@ -37,9 +37,19 @@
                 app:cardElevation="@dimen/dp_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"/>
 
-            </androidx.cardview.widget.CardView>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/deleteImage"
+                android:layout_width="@dimen/dp_30"
+                android:layout_height="@dimen/dp_30"
+                android:layout_gravity="center"
+                android:padding="@dimen/dp_4"
+                android:src="@drawable/ic_delete"
+                android:tint="@color/red"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/userRelationName"

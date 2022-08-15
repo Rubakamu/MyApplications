@@ -7,14 +7,19 @@ public class PrescriptionSingleTon {
 
     ArrayList<Prescription> prescriptionsList = new ArrayList<>();
 
-    private static final PrescriptionSingleTon ourInstance = new PrescriptionSingleTon();
+    private static PrescriptionSingleTon ourInstance=null;
 
-    public static PrescriptionSingleTon getInstance() {
-        return ourInstance;
-    }
     private PrescriptionSingleTon() {
 
     }
+
+    public static PrescriptionSingleTon getInstance() {
+        if(ourInstance ==null) {
+            ourInstance = new PrescriptionSingleTon();
+        }
+        return ourInstance;
+    }
+
 
     public ArrayList<Prescription> getPrescriptionsList() {
 

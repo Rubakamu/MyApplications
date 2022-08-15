@@ -1,19 +1,15 @@
 package com.example.primegen.payment;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.view.LayoutInflater;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.Navigation;
 
 import com.example.primegen.DashboardActivity;
 import com.example.primegen.databinding.ActivityPaymentSuccessBinding;
-import com.example.primegen.login.LoginActivity;
 
 public class PaymentSuccessActivity extends AppCompatActivity {
     private ActivityPaymentSuccessBinding mSuccessBinding;
@@ -24,9 +20,17 @@ public class PaymentSuccessActivity extends AppCompatActivity {
         mSuccessBinding = ActivityPaymentSuccessBinding.inflate(LayoutInflater.from(this));
         setContentView(mSuccessBinding.getRoot());
 
+        mSuccessBinding.btnDone.setOnClickListener(v -> {
+            Intent intent = new Intent(PaymentSuccessActivity.this, DashboardActivity.class);
+            intent.putExtra("isSuccess",true);
+            startActivity(intent);
+        });
 
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            finish();
-        },2000);
+//        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+//
+//            startActivity(new Intent(PaymentSuccessActivity.this,DashboardActivity.class));
+//
+//            finish();
+//        },2000);
     }
 }

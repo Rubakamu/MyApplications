@@ -42,7 +42,9 @@ public class SplashScreen extends AppCompatActivity {
                 String json1 = gson.toJson(user);
                 prefsEditor.putString("MyObject", json1);
                 prefsEditor.apply();
-                startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
+                Intent intent =new Intent(getApplicationContext(), DashboardActivity.class);
+                intent.putExtra("isSplash",true);
+                startActivity(intent);
                 finish();
             }else {
                 startActivity(new Intent(getApplicationContext(), SliderActivity.class));

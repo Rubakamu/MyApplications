@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.primegen.R;
+import com.example.primegen.cart.CartSingleTon;
 import com.example.primegen.databinding.FragmentHomeCollectionsBinding;
 
 public class HomeCollectionsFragment extends Fragment {
@@ -20,6 +21,9 @@ public class HomeCollectionsFragment extends Fragment {
                              Bundle savedInstanceState) {
         mCollectionsBinding = FragmentHomeCollectionsBinding.inflate(inflater);
 
+        if (CartSingleTon.getInstance(requireActivity()).readItemCount() != 0) {
+            mCollectionsBinding.tvCount.setText(String.valueOf(CartSingleTon.getInstance(requireActivity()).readItemCount()));
+        }
 
         initView();
         setBackPress();

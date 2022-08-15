@@ -38,8 +38,8 @@ public class FamilyAdapter extends RecyclerView.Adapter<FamilyAdapter.FamilyView
     public void onBindViewHolder(@NonNull FamilyViewHolder holder, int position) {
         FamilyViewHolder viewHolder = (FamilyViewHolder) holder;
         Family family = mFamilyList.get(position);
-        viewHolder.mFamilyBinding.userRelationName.setText(family.getName());
-        viewHolder.mFamilyBinding.userRelationship.setText(family.getRelation());
+        viewHolder.mFamilyBinding.userRelationName.setText(family.getRelativeName());
+        viewHolder.mFamilyBinding.userRelationship.setText(family.getRelationshipName());
 
 
     }

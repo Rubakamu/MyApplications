@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".profile.my_test.booking_details.BookingHistoryDetailsFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/topCard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_90"
+            android:layout_gravity="top"
+            android:layout_marginTop="-20dp"
+            android:backgroundTint="#FFFAFA"
+            app:cardCornerRadius="@dimen/dp_26"
+            app:cardElevation="@dimen/dp_16"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/carePaymentSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_16"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/dp_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topCard">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/summary"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            app:cardBackgroundColor="@color/white"
+            app:cardElevation="@dimen/dp_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPersonalDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@string/booking_details"
+                android:textColor="@color/primary_color"
+                android:textSize="@dimen/sp_20"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvInclude" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBookingIdText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Booking Id"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/summary" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBookingId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Booking Id"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvBookingIdText"
+            app:layout_constraintTop_toBottomOf="@+id/summary" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Address"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBookingIdText" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Address"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvAddressText"
+            app:layout_constraintTop_toBottomOf="@+id/tvBookingIdText" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInvoiceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Invoice"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInvoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Invoice"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvInvoiceText"
+            app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBookingReqDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Booking Req Date"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvInvoice" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBookingReqDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Booking Req Date"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvBookingReqDateText"
+            app:layout_constraintTop_toBottomOf="@+id/tvInvoice" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBookingStatusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="BookingStatus"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBookingReqDate" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBookingStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="BookingStatus"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvBookingStatusText"
+            app:layout_constraintTop_toBottomOf="@+id/tvBookingReqDate" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPaymentAmountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Payment Amount"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBookingStatus" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPaymentAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="BookingStatus"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvPaymentAmountText"
+            app:layout_constraintTop_toBottomOf="@+id/tvBookingStatus" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPaymentMethodText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Payment Method"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPaymentAmount" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPaymentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Payment Method"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPaymentAmount" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPaymentMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Payment Method"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvPaymentMethodText"
+            app:layout_constraintTop_toBottomOf="@+id/tvPaymentAmount" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPaymentStatusText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Payment Status"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPaymentMethodText" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPaymentStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Payment Status"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvPaymentStatusText"
+            app:layout_constraintTop_toBottomOf="@+id/tvPaymentMethod" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Test"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPaymentStatus" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="Amount"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPaymentStatus" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Result"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPaymentStatus" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Total"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTest" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTotalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:text="Total"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvTotal"
+            app:layout_constraintTop_toBottomOf="@+id/tvTest" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -6,6 +6,9 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,48 +17,168 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.primegen.R;
+import com.example.primegen.cart.CartSingleTon;
 import com.example.primegen.databinding.FragmentDashBoardBinding;
+import com.example.primegen.test.Test;
+import com.example.primegen.test.TestClickListener;
+import com.example.primegen.viewmodel.PrimeViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DashBoardFragment extends Fragment {
 
     private FragmentDashBoardBinding mDashBoardBinding;
     ItemClickListener itemClickListener;
+    private CartSingleTon cartSingleTon;
+    private List<Test> testList;
+    private final List<Test> mTestListOriginal = new ArrayList<>();
+    TestSearchAdapter searchAdapter;
+    TestClickListener testClickListener;
+    private PrimeViewModel viewModel;
+    private boolean isRegister;
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         mDashBoardBinding = FragmentDashBoardBinding.inflate(inflater);
+        viewModel = new ViewModelProvider(this).get(PrimeViewModel.class);
+
+
+
+        testClickListener = position -> {
+
+            mDashBoardBinding.edtSearch.setText(testList.get(position).getTestprofileName());
+
+            String testSearch = mDashBoardBinding.edtSearch.getText().toString();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("test_search", testSearch);
+            Navigation.findNavController(mDashBoardBinding.getRoot()).navigate(R.id.action_home_to_home_detail, bundle);
+        };
+
 
         itemClickListener = position -> {
-
             if (position == 0) {
                 Navigation.findNavController(mDashBoardBinding.getRoot()).navigate(R.id.action_home_to_home_detail);
             } else if (position == 1) {
-
                 Navigation.findNavController(mDashBoardBinding.getRoot()).navigate(R.id.action_home_to_home_detail);
             } else if (position == 2) {
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("isFromHeart", true);
+                Navigation.findNavController(mDashBoardBinding.getRoot()).navigate(R.id.action_home_to_home_detail, bundle);
+            } else if (position == 3) {
                 Navigation.findNavController(mDashBoardBinding.getRoot()).navigate(R.id.action_upload_prescription);
-
             } else {
                 callAtRuntime();
+                //navigate();
             }
-
         };
 
+        if (isAdded() && isVisible()) {
+            if (getArguments() != null) {
+                if (getArguments().getBoolean("isRegister")) {
+                    isRegister = getArguments().getBoolean("isRegister");
+                    if (isRegister) {
+                        navigate();
+                    }
+                }
+            }
+        }
+        if (CartSingleTon.getInstance(requireActivity()).readItemCount() != 0) {
+            mDashBoardBinding.tvCount.setText(String.valueOf(CartSingleTon.getInstance(requireActivity()).readItemCount()));
+        }
+
+
+        mDashBoardBinding.ivSearchDelete.setOnClickListener(v -> mDashBoardBinding.edtSearch.setText(""));
+
         getDashBoardList();
+        getTestList();
+
+
         return mDashBoardBinding.getRoot();
 
     }
 
+    private void getTestList() {
+
+
+        viewModel.getAllTestData().observe(requireActivity(), testResponse -> {
+
+            if (getActivity() != null && isAdded() && isVisible()) {
+                setTestList(testResponse.getTest());
+            }
+
+        });
+
+        mDashBoardBinding.edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String searchText = s.toString().toLowerCase();
+
+                if (!TextUtils.isEmpty(searchText)) {
+                    mDashBoardBinding.testCard.setVisibility(View.VISIBLE);
+                    List<Test> filteredList = new ArrayList<>();
+                    for (Test test : mTestListOriginal) {
+                        if (viewModel.isMatchesFound(searchText, test)) {
+                            filteredList.add(test);
+                        }
+                    }
+                    updateList(filteredList);
+                } else {
+                    mDashBoardBinding.testCard.setVisibility(View.GONE
+                    );
+                    updateList(mTestListOriginal);
+                }
+            }
+        });
+
+
+    }
+
+    private void setTestList(List<Test> data) {
+        testList = data;
+        mTestListOriginal.addAll(data);
+
+        mDashBoardBinding.rvTestSearch.setLayoutManager(new LinearLayoutManager(getActivity()));
+        searchAdapter = new TestSearchAdapter(requireActivity(), testList, testClickListener);
+        mDashBoardBinding.rvTestSearch.setAdapter(searchAdapter);
+
+//        mDashBoardBinding.edtSearch.setOnClickListener(v ->
+//                mDashBoardBinding.rvTestSearch.setVisibility(View.VISIBLE));
+
+
+    }
+
+    private void updateList(List<Test> tests) {
+
+        if (testList != null) {
+            testList.clear();
+            testList.addAll(tests);
+            searchAdapter.notifyDataSetChanged();
+        }
+    }
+
     private void getDashBoardList() {
+
         ArrayList<DashBoard> dashBoardList = new ArrayList<>();
 
         DashBoard d1 = new DashBoard();
@@ -67,19 +190,24 @@ public class DashBoardFragment extends Fragment {
         d2.setImage(R.drawable.ic_health_packages);
 
         DashBoard d3 = new DashBoard();
-        d3.setCardName("Upload Prescription");
-        d3.setImage(R.drawable.ic_upload);
+        d3.setCardName("Heart");
+        d3.setImage(R.drawable.ic_heart);
 
         DashBoard d4 = new DashBoard();
-        d4.setCardName("Book on Call");
-        d4.setImage(R.drawable.ic_call);
+        d4.setCardName("Upload Prescription");
+        d4.setImage(R.drawable.ic_upload);
+
+        DashBoard d5 = new DashBoard();
+        d5.setCardName("Book on Call");
+        d5.setImage(R.drawable.ic_call);
 
         dashBoardList.add(d1);
         dashBoardList.add(d2);
         dashBoardList.add(d3);
         dashBoardList.add(d4);
+        dashBoardList.add(d5);
 
-        mDashBoardBinding.rvTest.setLayoutManager(new GridLayoutManager(requireActivity(), 2));
+        mDashBoardBinding.rvTest.setLayoutManager(new GridLayoutManager(requireActivity(), 3));
         DashBoardAdapter dashBoardAdapter = new DashBoardAdapter(requireActivity(), dashBoardList, itemClickListener);
         mDashBoardBinding.rvTest.setAdapter(dashBoardAdapter);
 
@@ -88,7 +216,12 @@ public class DashBoardFragment extends Fragment {
 
         mDashBoardBinding.ivSearchDelete.setOnClickListener(v ->
                 mDashBoardBinding.edtSearch.setText(""));
+        mDashBoardBinding.testCard.setVisibility(View.GONE);
 
+    }
+
+    private void navigate() {
+        Navigation.findNavController(mDashBoardBinding.getRoot()).navigate(R.id.action_my_account);
     }
 
     private void callAtRuntime() {

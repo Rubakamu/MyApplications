@@ -45,9 +45,13 @@ public class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.Dash
         mobileViewHolder.binding.image.setImageResource(mobile.getImage());
 
 
-        if(position == 1){
+        if(position == 3){
             //mobileViewHolder.binding.cardView.setCardBackgroundColor(R.color.primary_layout_bg);
-            mobileViewHolder.binding.cardView.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.primary_layout_bg));
+            mobileViewHolder.binding.cardView.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.primegen_logo));
+
+        }if(position == 4){
+            //mobileViewHolder.binding.cardView.setCardBackgroundColor(R.color.primary_layout_bg);
+            mobileViewHolder.binding.cardView.setCardBackgroundColor(ContextCompat.getColor(mContext, R.color.primegen_logo));
 
         }
 
@@ -60,11 +64,9 @@ public class DashBoardAdapter extends RecyclerView.Adapter<DashBoardAdapter.Dash
 
     public class DashBoardViewHolder extends RecyclerView.ViewHolder {
         ListItemDashboardBinding binding;
-
         public DashBoardViewHolder(@NonNull ListItemDashboardBinding itemView) {
             super(itemView.getRoot());
             binding = itemView;
-
             itemView.getRoot().setOnClickListener(v ->
                     mItemClickListener.onClick(getLayoutPosition()));
         }

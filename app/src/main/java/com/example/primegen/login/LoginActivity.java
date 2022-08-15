@@ -5,16 +5,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.primegen.DashboardActivity;
-import com.example.primegen.R;
-import com.example.primegen.cart.AddToCartFragment;
 import com.example.primegen.databinding.ActivityLoginBinding;
 import com.example.primegen.forgotpassword.ForgotPasswordActivity;
 import com.example.primegen.signup.RegisterActivity;
@@ -29,6 +24,12 @@ public class LoginActivity extends AppCompatActivity {
     private PrimeViewModel viewModel;
     private SharedPreferences mPrefs;
     private boolean isCartLogin;
+    private int intValue;
+    boolean isRegister;
+    boolean isForgotPassword;
+    String phone;
+    String password;
+    private boolean isSlider;
 
 
     @Override
@@ -47,8 +48,10 @@ public class LoginActivity extends AppCompatActivity {
 //        isCartLogin = bundle.getBoolean("cart_login");
 
         loginUser();
-        mBinding.loginLayout.signUp.setOnClickListener(v ->
-                startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
+        mBinding.loginLayout.signUp.setOnClickListener(v -> {
+            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            finishAffinity();
+        });
         mBinding.loginLayout.tvForgotPassword.setOnClickListener(v ->
                 startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class)));
         mBinding.loginLayout.back.setOnClickListener(v -> onBackPressed());
@@ -56,61 +59,46 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginUser() {
-        mBinding.loginLayout.btnSignIn.setOnClickListener(view -> {
-            String email = mBinding.loginLayout.edtEmail.getText().toString();
-            String password = mBinding.loginLayout.editTextPassword.getText().toString();
 
-            if (!TextUtils.isEmpty(password) && !TextUtils.isEmpty(email)) {
+            mBinding.loginLayout.btnSignIn.setOnClickListener(view -> {
+                String email = mBinding.loginLayout.edtEmail.getText().toString();
+                String password = mBinding.loginLayout.editTextPassword.getText().toString();
 
-                viewModel.loginUser(email, password).observe(LoginActivity.this, loginResponse -> {
-                    if (loginResponse.getMessage().equals("Invalid email format")) {
-                        Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                    } else if (loginResponse.getMessage().equals("Login Success")) {
+                if (!TextUtils.isEmpty(password) && !TextUtils.isEmpty(email)) {
 
-                        SharedPreferences.Editor prefsEditor = mPrefs.edit();
-                        Gson gson = new Gson();
-                        String json = gson.toJson(loginResponse.getUser());
-                        prefsEditor.putString("MyObject", json);
-                        prefsEditor.apply();
+                    viewModel.loginUser(email, password).observe(LoginActivity.this, loginResponse -> {
 
+                        if (loginResponse.getMessage().equals("Login Success")) {
 
-                        Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
-                        // intent.putExtra("cart_login",isCartLogin);
-                        startActivity(intent);
+                            SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                            Gson gson = new Gson();
+                            String json = gson.toJson(loginResponse.getUser());
+                            prefsEditor.putString("MyObject", json);
+                            prefsEditor.apply();
+                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                            intent.putExtra("isLogin", true);
+                            startActivity(intent);
+                            mBinding.loginLayout.responseText.setText(loginResponse.getMessage());
+                            //  Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else if (loginResponse.getMessage().equals("Incorrect Mobile Number/Password We Cannot find an account with that mobile number/password")) {
+                            //  Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                            mBinding.loginLayout.responseText.setText(loginResponse.getMessage());
+                        }
 
-                        Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                        finish();
-                    } else if (loginResponse.getMessage().equals("Incorrect Mobile Number/Password<br>We Cannot find an account with that mobile number/password")) {
-                        Toast.makeText(LoginActivity.this, loginResponse.getMessage(), Toast.LENGTH_SHORT).show();
-
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-
-                    }
+                    });
 
 
-                });
+                } else if (TextUtils.isEmpty(password) && TextUtils.isEmpty(email)) {
+                    mBinding.loginLayout.edtEmail.setError("Please enter the email");
+                    mBinding.loginLayout.editTextPassword.setError("enter the value");
+                } else if (TextUtils.isEmpty(password) && !TextUtils.isEmpty(email)) {
+                    mBinding.loginLayout.editTextPassword.setError("enter the value");
+                } else if (TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+                    mBinding.loginLayout.edtEmail.setError("Please enter the email");
+                }
+            });
+        }
 
-
-            } else {
-
-                mBinding.loginLayout.edtEmail.setError("Please enter the email");
-                mBinding.loginLayout.editTextPassword.setError("enter the value");
-            }
-        });
-    }
-
-    public void setFragment() {
-        // Create new fragment and transaction
-        Fragment newFragment = new AddToCartFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this fragment, and add the transaction to the back stack
-        transaction.replace(R.id.action_add_to_cart, newFragment);
-        transaction.addToBackStack(null);
-
-        // Commit the transaction
-        transaction.commit();
-    }
 
 }

@@ -38,9 +38,14 @@
 
     <string name="phone_number_text">We have sent you on SMS with a code to number</string>
     <string name="phone">Phone</string>
+    <string name="username_phone">UserName/Phone</string>
+    <string name="your_phone">Your Phone</string>
     <string name="verify_phone_number">Verify Phone Number</string>
     <string name="forgot_password_">Forgot Password</string>
-    <string name="forgot_password_text">Please enter your email address. You will receive a link to create a new password via email.</string>
+    <string name="forgot_password_text">We will send you an OTP to verify your phone.</string>
+
+    <!--   <string name="forgot_password_text">Please enter your email address. You will receive a link to create a new password via email.</string>-->
+
     <string name="email_address">Email Address</string>
     <string name="change">Change</string>
     <string name="your_password_has_been_reset">Your password has</string>
@@ -64,7 +69,7 @@
     <string name="sample_pickup_from">Sample pickup from</string>
     <string name="select">select</string>
     <string name="remove">Remove</string>
-    <string name="add_to_card">Add to Cart</string>
+    <string name="add_to_card">Cart</string>
     <string name="test_details">Test_Details</string>
     <string name="add_more_test">Add More Test</string>
     <string name="primegen_labs">PrimeGen Labs</string>
@@ -152,6 +157,20 @@
     <string name="submit">Submit</string>
     <string name="title">Title</string>
     <string name="password">Password</string>
+    <string name="add_new_address">Add New Address</string>
+    <string name="state">State</string>
+    <string name="address_label">Address Label</string>
+    <string name="add_address">Add Address</string>
+    <string name="landmark">Landmark</string>
+    <string name="booking_details">Booking Details</string>
+    <string name="proceed">Proceed</string>
+    <string name="select_date_time"><![CDATA[Select Date & Time]]></string>
+    <string name="transaction_id">Transaction / Order Id</string>
+    <string name="amount">Amount</string>
+    <string name="booking_id">Booking Id</string>
+    <string name="pay_now">Pay Now</string>
+    <string name="cod">COD</string>
+    <string name="your_booking">Your Booking</string>
 
 
     <string-array name="countries">
@@ -163,13 +182,23 @@
     </string-array>
 
     <string-array name="relation">
-        <item>Mother</item>
+        <item>Select Relationship</item>
         <item>Father</item>
-        <item>Sister</item>
+        <item>Mother</item>
+        <item>Spouse</item>
         <item>Brother</item>
-        <item>Grandfather</item>
-        <item>Grandmother</item>
+        <item>Sister</item>
+        <item>Son</item>
+        <item>Daughter</item>
+        <item>Uncle</item>
+        <item>Aunty</item>
     </string-array>
+    <string name="privacy_policy_text">Your privacy is important to us. It is PrimeGen Healthcare Laboratories Pvt Ltd\' policy to respect your privacy and comply with any applicable law and regulation regarding any personal information we may collect about you, including across our website,https://primegen.in, and other sites we own and operate.Personal information is any information about you which can be used to identify you. This includes information about you as a person (such as name, address, and date of birth), your devices, payment details, and even information about how you use a website or online service. In the event our site contains links to third-party sites and services, please be aware that those sites and services have their own privacy policies. After following a link to any third-party content, you should read their posted privacy policy information about how they collect and use personal information. This Privacy Policy does not apply to any of your activities after you leave our site. This policy is effective as of 28 July 2022. Last updated: 28 July 2022</string>
+    <string name="information" >Information</string>
+    <string name="go_to_home">Go to Home</string>
+    <string name="your_cart_is_empty">Your Cart is Empty</string>
+    <string name="looks_like_you_have_not_added_anything_to_you_cart">Looks like you have not added anything to you cart.</string>
+    <string name="book_a_test">Book a Test</string>
 
 
 </resources>

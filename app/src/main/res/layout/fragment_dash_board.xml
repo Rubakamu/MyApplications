@@ -10,138 +10,185 @@
         tools:context=".home.DashBoardFragment">
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_layout"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_150"
+            android:layout_marginBottom="@dimen/dp_2"
+            android:outlineSpotShadowColor="#073673"
+            app:cardBackgroundColor="@color/layout_bg"
+            app:cardCornerRadius="@dimen/dp_16"
+            app:cardElevation="@dimen/dp_28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_150"
-                app:cardBackgroundColor="@color/layout_bg"
-                app:cardCornerRadius="@dimen/dp_16"
-                app:cardElevation="@dimen/dp_28"
-                android:layout_marginBottom="@dimen/dp_2"
-                android:outlineSpotShadowColor="#073673"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/dp_40"
-                        android:layout_marginStart="@dimen/dp_16"
-                        android:layout_marginEnd="@dimen/dp_16"
-                        android:layout_marginBottom="@dimen/dp_20"
-                        app:cardCornerRadius="@dimen/dp_6"
-                        app:cardBackgroundColor="@color/layout_bg"
-                        app:cardElevation="@dimen/dp_10"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/filter"
-                        app:layout_constraintBottom_toBottomOf="parent">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
-                            <EditText
-                                android:id="@+id/edtSearch"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:drawableStart="@drawable/ic_search"
-                                android:drawablePadding="@dimen/dp_12"
-                                android:hint="@string/search"
-                                android:textColorHint="@color/primary_color"
-                                android:padding="10dp"
-                                android:textColor="@color/primary_color"
-                                android:background="@null"
-                                android:textSize="16sp"
-                                app:layout_constraintTop_toTopOf="parent"
-                                />
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:id="@+id/ivSearchDelete"
-                                android:layout_width="@dimen/dp_14"
-                                android:layout_height="@dimen/dp_14"
-                                android:src="@drawable/ic_cross"
-                                android:layout_margin="@dimen/dp_16"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintBottom_toBottomOf="parent"/>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/filter"
-                        android:layout_width="@dimen/dp_40"
-                        android:layout_height="@dimen/dp_40"
-                        android:layout_marginEnd="@dimen/dp_16"
-                        android:layout_marginBottom="@dimen/dp_20"
-                        app:cardBackgroundColor="@color/primary_layout_bg"
-                        app:cardCornerRadius="@dimen/dp_6"
-                        app:cardElevation="@dimen/dp_10"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
-
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/ivMenu"
-                            android:layout_width="@dimen/dp_20"
-                            android:layout_height="@dimen/dp_20"
-                            android:src="@drawable/ic_menu"
-                            android:layout_gravity="center"
-                            />
-                    </androidx.cardview.widget.CardView>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dp_90"
-                android:layout_marginBottom="@dimen/dp_10"
-                android:layout_marginTop="-20dp"
-                android:outlineSpotShadowColor="#073673"
-                app:cardCornerRadius="@dimen/dp_16"
-                app:cardElevation="@dimen/dp_30"
-                app:cardBackgroundColor="@color/layout_bg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cvCart"
-                    android:layout_width="@dimen/dp_40"
+                    android:layout_width="0dp"
                     android:layout_height="@dimen/dp_40"
-                    android:layout_marginTop="@dimen/dp_36"
+                    android:layout_marginStart="@dimen/dp_16"
                     android:layout_marginEnd="@dimen/dp_16"
-                    android:layout_marginBottom="@dimen/dp_6"
-                    android:outlineSpotShadowColor="#073673"
-                    android:padding="@dimen/dp_36"
-                    android:layout_gravity="end"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardCornerRadius="@dimen/dp_26"
+                    android:layout_marginBottom="@dimen/dp_20"
+                    app:cardBackgroundColor="@color/layout_bg"
+                    app:cardCornerRadius="@dimen/dp_6"
                     app:cardElevation="@dimen/dp_10"
-                    app:cardMaxElevation="@dimen/dp_12"
-                    app:cardPreventCornerOverlap="true"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintEnd_toStartOf="@+id/filter"
+                    app:layout_constraintStart_toStartOf="parent">
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/ivCart"
-                        android:layout_width="@dimen/dp_24"
-                        android:layout_height="@dimen/dp_24"
-                        android:layout_gravity="center"
-                        android:layout_margin="@dimen/dp_6"
-                        android:src="@drawable/ic_cart"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:id="@+id/edtSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:drawableStart="@drawable/ic_search"
+                            android:drawablePadding="@dimen/dp_12"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:hint="@string/search"
+                            android:padding="10dp"
+                            android:textColor="@color/primary_color"
+                            android:textColorHint="@color/primary_color"
+                            android:textSize="16sp"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivSearchDelete"
+                            android:layout_width="@dimen/dp_14"
+                            android:layout_height="@dimen/dp_14"
+                            android:layout_margin="@dimen/dp_16"
+                            android:src="@drawable/ic_cross"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/filter"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_40"
+                    android:layout_marginEnd="@dimen/dp_16"
+                    android:layout_marginBottom="@dimen/dp_20"
+                    app:cardBackgroundColor="@color/primary_layout_bg"
+                    app:cardCornerRadius="@dimen/dp_6"
+                    android:visibility="gone"
+                    app:cardElevation="@dimen/dp_10"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
 
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivMenu"
+                        android:layout_width="@dimen/dp_20"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_menu" />
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_90"
+            android:layout_marginTop="-20dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:outlineSpotShadowColor="#073673"
+            app:cardBackgroundColor="@color/layout_bg"
+            app:cardCornerRadius="@dimen/dp_16"
+            app:cardElevation="@dimen/dp_30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_10"
+                android:src="@drawable/primegen_app_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvCart"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/dp_36"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_6"
+                android:outlineSpotShadowColor="#073673"
+                android:padding="@dimen/dp_36"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/dp_26"
+                app:cardElevation="@dimen/dp_10"
+                app:cardMaxElevation="@dimen/dp_12"
+                app:cardPreventCornerOverlap="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivCart"
+                    android:layout_width="@dimen/dp_24"
+                    android:layout_height="@dimen/dp_24"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/dp_6"
+                    android:src="@drawable/ic_cart"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:background="@color/white"
+                    android:textColor="@color/red"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="2" />
 
             </androidx.cardview.widget.CardView>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/testCard"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/dp_16"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/card_layout">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTestSearch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_200"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_layout"/>
+        </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/title"
@@ -154,7 +201,7 @@
             android:textSize="@dimen/sp_26"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card_layout" />
+            app:layout_constraintTop_toBottomOf="@+id/testCard" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/titleText"
@@ -163,18 +210,30 @@
             android:layout_marginStart="@dimen/dp_16"
             android:text="@string/find_the_best_diagnostic_in_your_city"
             android:textColor="@color/primary_color"
-            android:textStyle="normal"
             android:textSize="@dimen/sp_14"
+            android:textStyle="normal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
+<!--        <androidx.appcompat.widget.AppCompatImageView-->
+<!--            android:id="@+id/bg"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:src="@drawable/primegen_logo_new"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/titleText" />-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTest"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

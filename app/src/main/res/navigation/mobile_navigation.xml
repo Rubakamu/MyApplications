@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.primegen.home.DashBoardFragment"
-        android:label="@string/title_home"
+        android:label=""
         tools:layout="@layout/fragment_dash_board">
 
         <action
@@ -23,14 +23,21 @@
             android:id="@+id/action_upload_prescription"
             app:destination="@id/navigation_upload_prescription" />
 
+        <action
+            android:id="@+id/action_my_account"
+            app:destination="@id/navigation_my_account" />
+
 
     </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.primegen.test.TestFragment"
-        android:label="Test List"
+        android:label=""
         tools:layout="@layout/fragment_test">
+        <action
+            android:id="@+id/action_home"
+            app:destination="@id/navigation_home" />
 
         <action
             android:id="@+id/action_test_to_test_detail"
@@ -54,7 +61,7 @@
     <fragment
         android:id="@+id/navigation_userprofile"
         android:name="com.example.primegen.profile.UserprofileFragment"
-        android:label="@string/user_profile"
+        android:label=" "
         tools:layout="@layout/fragment_userprofile">
 
         <action
@@ -111,6 +118,14 @@
         <action
             android:id="@+id/action_patient_details"
             app:destination="@id/navigation_patient_details" />
+
+        <action
+            android:id="@+id/action_my_address"
+            app:destination="@id/navigation_my_address" />
+
+        <action
+            android:id="@+id/action_test_list"
+            app:destination="@id/navigation_dashboard" />
     </fragment>
 
     <fragment
@@ -154,6 +169,10 @@
         <action
             android:id="@+id/action_add_to_cart"
             app:destination="@id/navigation_add_cart" />
+
+        <action
+            android:id="@+id/action_booking_details"
+            app:destination="@id/navigation_booking_details" />
     </fragment>
 
     <fragment
@@ -185,6 +204,10 @@
         <action
             android:id="@+id/action_add_to_cart"
             app:destination="@id/navigation_add_cart" />
+
+        <action
+            android:id="@+id/action_add_address"
+            app:destination="@id/navigation_add_address" />
     </fragment>
     <fragment
         android:id="@+id/navigation_my_account"
@@ -194,15 +217,23 @@
         <action
             android:id="@+id/action_add_to_cart"
             app:destination="@id/navigation_add_cart" />
+
+        <action
+            android:id="@+id/action_user_profile"
+            app:destination="@id/navigation_userprofile" />
     </fragment>
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.primegen.profile.settings.ProfileSettingFragment"
-        android:label="@string/settings"
+        android:label="@string/information"
         tools:layout="@layout/fragment_profile_setting">
         <action
             android:id="@+id/action_add_to_cart"
             app:destination="@id/navigation_add_cart" />
+
+        <action
+            android:id="@+id/action_privacy_policy"
+            app:destination="@id/navigation_privacy_policy" />
     </fragment>
 
     <fragment
@@ -249,5 +280,32 @@
 
     </fragment>
 
+    <fragment
+        android:id="@+id/navigation_add_address"
+        android:name="com.example.primegen.profile.my_address.AddAddressFragment"
+        android:label="@string/add_new_address"
+        tools:layout="@layout/fragment_add_address">
+
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/navigation_add_cart" />
+        <action
+            android:id="@+id/action_my_address"
+            app:destination="@id/navigation_my_address" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_booking_details"
+        android:name="com.example.primegen.profile.my_test.booking_details.BookingHistoryDetailsFragment"
+        android:label="@string/booking_details"
+        tools:layout="@layout/fragment_booking_history_details">
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_privacy_policy"
+        android:name="com.example.primegen.profile.settings.PrivacyPolicyFragment"
+        android:label="@string/privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy">
+    </fragment>
 
 </navigation>

@@ -7,18 +7,30 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/layout_bg"
         tools:context=".profile.UserprofileFragment">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card2"
             style="@style/MyCardView"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_60"
-            app:cardBackgroundColor="@color/white"
-            app:cardElevation="@dimen/dp_10"
+            android:layout_height="@dimen/dp_70"
+            android:outlineSpotShadowColor="#073673"
+            app:cardBackgroundColor="@color/layout_bg"            app:cardElevation="@dimen/dp_10"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:src="@drawable/primegen_app_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
 
             <androidx.cardview.widget.CardView
@@ -30,6 +42,7 @@
                 android:layout_marginBottom="@dimen/dp_6"
                 android:outlineSpotShadowColor="#073673"
                 android:padding="@dimen/dp_26"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/dp_6"
                 app:cardElevation="@dimen/dp_10"
@@ -78,11 +91,37 @@
                     android:src="@drawable/ic_cart"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:textColor="@color/red"
+                    android:background="@color/white"
+                    android:textStyle="bold"
+                    tools:text="2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.cardview.widget.CardView>
 
         </com.google.android.material.card.MaterialCardView>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="-60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card2"
+            >
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
         <LinearLayout
             android:id="@+id/card_layout"
             android:layout_width="match_parent"
@@ -137,6 +176,8 @@
                 android:layout_height="@dimen/dp_130"
                 android:layout_marginTop="-270dp"
                 android:gravity="top"
+                android:outlineSpotShadowColor="#073673"
+                app:cardBackgroundColor="@color/layout_bg"
                 android:layout_weight="1"
                 app:cardCornerRadius="@dimen/dp_26"
                 app:cardElevation="@dimen/dp_26" />
@@ -146,6 +187,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:outlineSpotShadowColor="#073673"
+                app:cardBackgroundColor="@color/layout_bg"
                 android:layout_marginTop="-90dp"
                 app:cardCornerRadius="@dimen/dp_80"
                 app:cardElevation="@dimen/dp_28">
@@ -170,17 +213,20 @@
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
-
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvUserDetails"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_8"
             android:layout_marginEnd="@dimen/dp_8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_layout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

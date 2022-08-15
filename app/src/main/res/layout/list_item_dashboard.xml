@@ -8,35 +8,34 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     >
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="@dimen/dp_130"
-        android:layout_height="@dimen/dp_130"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_100"
+        android:outlineSpotShadowColor="#073673"
+        app:cardBackgroundColor="@color/primary_logo"
         app:cardCornerRadius="@dimen/dp_16"
         app:cardElevation="@dimen/dp_16"
-        app:cardBackgroundColor="@color/white"
-        android:outlineSpotShadowColor="#073673"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/dp_16">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/image"
-            android:layout_width="@dimen/dp_60"
-            android:layout_height="@dimen/dp_60"
-            tools:src="@drawable/ic_test"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="@dimen/dp_50"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_test" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -49,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_6"
         tools:text="All test"
-        android:textSize="@dimen/sp_16"
+        android:textSize="@dimen/sp_12"
         android:textColor="#516E95"
         app:layout_constraintStart_toStartOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="@+id/cardView"

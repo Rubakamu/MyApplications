@@ -27,6 +27,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.primegen.R;
+import com.example.primegen.cart.CartSingleTon;
 import com.example.primegen.databinding.FragmentPrescriptionBinding;
 
 import java.io.ByteArrayOutputStream;
@@ -55,6 +56,11 @@ public class PrescriptionFragment extends Fragment {
         setBackPress();
         takePictureFromGallery();
         takePictureFromCamera();
+
+        if (CartSingleTon.getInstance(requireActivity()).readItemCount() != 0) {
+            mPrescriptionBinding.tvCount.setText(String.valueOf(CartSingleTon.getInstance(requireActivity()).readItemCount()));
+        }
+
 
         return mPrescriptionBinding.getRoot();
     }

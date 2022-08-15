@@ -3,6 +3,7 @@ package com.example.primegen.slider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -29,6 +30,13 @@ public class SliderActivity extends AppCompatActivity {
         //setStatusBarColor();
         mSliderBinding.viewPager.setAdapter(createCardAdapter());
 
+        mSliderBinding.tvSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchWelcomeScreen();
+            }
+        });
+
         mSliderBinding.ivGetStart.setOnClickListener(v -> {
             int current = getItem(+1);
             if (current < 3) {
@@ -42,7 +50,9 @@ public class SliderActivity extends AppCompatActivity {
     }
 
     private void launchWelcomeScreen() {
-        startActivity(new Intent(SliderActivity.this, LoginActivity.class));
+        Intent intent = new Intent(SliderActivity.this,LoginActivity.class);
+        intent.putExtra("isSlider",true);
+        startActivity(intent);
     }
     private int getItem(int i) {
 

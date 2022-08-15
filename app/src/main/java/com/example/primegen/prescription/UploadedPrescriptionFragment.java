@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.primegen.R;
+import com.example.primegen.cart.CartSingleTon;
 import com.example.primegen.databinding.FragmentUploadedPrescriptionBinding;
 
 import java.util.ArrayList;
@@ -45,6 +46,11 @@ public class UploadedPrescriptionFragment extends Fragment {
 
             }
         };
+
+        if (CartSingleTon.getInstance(requireActivity()).readItemCount() != 0) {
+            mUploadedPrescriptionBinding.tvCount.setText(String.valueOf(CartSingleTon.getInstance(requireActivity()).readItemCount()));
+        }
+
 
         setBackPress();
         initView();

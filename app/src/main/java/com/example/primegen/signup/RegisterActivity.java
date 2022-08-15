@@ -5,15 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
-import com.example.primegen.base_properties.BaseResponse;
 import com.example.primegen.databinding.ActivityRegisterBinding;
 import com.example.primegen.login.LoginActivity;
 import com.example.primegen.login.OtpVerificationActivity;
@@ -23,6 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     private ActivityRegisterBinding mRegisterBinding;
     private PrimeViewModel viewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,58 +30,100 @@ public class RegisterActivity extends AppCompatActivity {
 
         createUserData();
 
-        mRegisterBinding.register.signIn.setOnClickListener(v ->
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class)));
+        mRegisterBinding.register.signIn.setOnClickListener(v ->{
+                //startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+            intent.putExtra("isRegister", false);
+            startActivity(intent);
+
+    });
         mRegisterBinding.register.back.setOnClickListener(v -> onBackPressed());
     }
+
     public void createUserData() {
 
         mRegisterBinding.register.btnSignIn.setOnClickListener(v -> {
+
             String username = mRegisterBinding.register.edtName.getText().toString();
             String phone = mRegisterBinding.register.edtMobile.getText().toString();
             String email = mRegisterBinding.register.edtEmail.getText().toString();
             String password = mRegisterBinding.register.edtPassword.getText().toString();
 
-    if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)
-            && !TextUtils.isEmpty(email)) {
+            if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)
+                    && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(phone)) {
 
-       viewModel.insertUser(username,phone,email,password).observe(RegisterActivity.this, baseResponse -> {
+                viewModel.insertUser(username, phone, email, password).observe(RegisterActivity.this, baseResponse -> {
 
-           if (baseResponse.getMessage().equals("Invalid email format")){
-               Toast.makeText(RegisterActivity.this,baseResponse.getMessage(),Toast.LENGTH_SHORT).show();
-           }else if(baseResponse.getMessage().equals("Success..!")){
-               clear();
+                    if (baseResponse.getMessage().equals("Something went wrong. Please try again later...!")) {
+                        mRegisterBinding.register.responseText.setText(baseResponse.getMessage());
+                        //Toast.makeText(RegisterActivity.this, baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                    } else if (baseResponse.getMessage().equals("Success..!")) {
 
-               Intent intent = new Intent(RegisterActivity.this, OtpVerificationActivity.class);
-               intent.putExtra("cid",baseResponse.getCid());
-               intent.putExtra("isRegister", true);
-               startActivity(intent);
-               Toast.makeText(RegisterActivity.this,baseResponse.getMessage(),Toast.LENGTH_SHORT).show();
-               finish();
-           }else if(baseResponse.getMessage().equals("Username already registered...")){
-               Toast.makeText(RegisterActivity.this,baseResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(RegisterActivity.this, OtpVerificationActivity.class);
+                        intent.putExtra("cid", baseResponse.getCid());
+                        intent.putExtra("isRegister", true);
+                        intent.putExtra("phone", phone);
+                        intent.putExtra("password", password);
+                        startActivity(intent);
+                        clear();
+                        // Toast.makeText(RegisterActivity.this, baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        mRegisterBinding.register.responseText.setText(baseResponse.getMessage());
 
-           }else if(baseResponse.getMessage().equals("Email ID already registered...!")){
-               Toast.makeText(RegisterActivity.this,baseResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else if (baseResponse.getMessage().equals("Customer with that mobile number already...!")) {
+                        //Toast.makeText(RegisterActivity.this, baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        mRegisterBinding.register.responseText.setText(baseResponse.getMessage());
 
-           }else if(baseResponse.getMessage().equals("Password must be less than 20 and more than 6 characters")){
-               Toast.makeText(RegisterActivity.this,baseResponse.getMessage(),Toast.LENGTH_SHORT).show();
+                    } else if (baseResponse.getMessage().equals("Email ID already registered...!")) {
+                        //Toast.makeText(RegisterActivity.this, baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        mRegisterBinding.register.responseText.setText(baseResponse.getMessage());
 
-           }else {
-               Toast.makeText(RegisterActivity.this,"Register Failed",Toast.LENGTH_SHORT).show();
+                    } else if (baseResponse.getMessage().equals("Password must be less than 20 and more than 6 characters")) {
+                        //Toast.makeText(RegisterActivity.this, baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                        mRegisterBinding.register.responseText.setText(baseResponse.getMessage());
 
-           }
+                    }
 
-       });
+                });
 
-    } else {
+            } else if (TextUtils.isEmpty(username) && TextUtils.isEmpty(email) && TextUtils.isEmpty(phone) && TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtName.setError("Name is Require");
+                mRegisterBinding.register.edtEmail.setError("Email is Require");
+                mRegisterBinding.register.edtMobile.setError("phone is Require");
+                mRegisterBinding.register.edtPassword.setError("Password is Require");
+            } else if (TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(phone) && !TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtName.setError("Name is Require");
+            } else if (TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(phone) && !TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtName.setError("Name is Require");
+            } else if (!TextUtils.isEmpty(username) && TextUtils.isEmpty(email) && !TextUtils.isEmpty(phone) && !TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtEmail.setError("Email is Require");
+            } else if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && TextUtils.isEmpty(phone) && !TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtMobile.setError("phone is Require");
+            } else if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(phone) && TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtPassword.setError("Password is Require");
+            } else if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && TextUtils.isEmpty(phone) && TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtPassword.setError("Password is Require");
+                mRegisterBinding.register.edtMobile.setError("phone is Require");
+            } else if (!TextUtils.isEmpty(username) && TextUtils.isEmpty(email) && !TextUtils.isEmpty(phone) && TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtPassword.setError("Password is Require");
+                mRegisterBinding.register.edtMobile.setError("Email is Require");
+            } else if (TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(phone) && TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtPassword.setError("Password is Require");
+                mRegisterBinding.register.edtName.setError("Name is Require");
+            } else if (TextUtils.isEmpty(username) && TextUtils.isEmpty(email) && !TextUtils.isEmpty(phone) && !TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtEmail.setError("Email is Require");
+                mRegisterBinding.register.edtName.setError("Name is Require");
+            } else if (TextUtils.isEmpty(username) && !TextUtils.isEmpty(email) && TextUtils.isEmpty(phone) && !TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtMobile.setError("Phone is Require");
+                mRegisterBinding.register.edtName.setError("Name is Require");
+            } else if (!TextUtils.isEmpty(username) && TextUtils.isEmpty(email) && TextUtils.isEmpty(phone) && !TextUtils.isEmpty(password)) {
+                mRegisterBinding.register.edtMobile.setError("Phone is Require");
+                mRegisterBinding.register.edtEmail.setError("Email is Require");
+            }
 
-        mRegisterBinding.register.edtName.setError("enter the value");
-        mRegisterBinding.register.edtEmail.setError("enter the value");
-        mRegisterBinding.register.edtPassword.setError("enter the value");
-    }
         });
     }
+
     public void clear() {
         mRegisterBinding.register.edtName.setText("");
         mRegisterBinding.register.edtEmail.setText("");

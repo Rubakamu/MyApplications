@@ -16,15 +16,16 @@ import com.example.primegen.test.TestAdapter;
 import com.example.primegen.test.TestClickListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
     private Context mContext;
-    private ArrayList<Test> mTestList;
+    private List<Test> mTestList;
     private CartClickListener mCartClickListener;
     private boolean isExpanded = true;
 
-    public CartAdapter(Context context, ArrayList<Test> testList, CartClickListener cartClickListener) {
+    public CartAdapter(Context context, List<Test> testList, CartClickListener cartClickListener) {
 
         mContext = context;
         mTestList = testList;
@@ -48,10 +49,12 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         mobileViewHolder.mCartBinding.price.setText("₹" + test.getTestprofileOfferPrice());
 
 
+
     }
 
     @Override
     public int getItemCount() {
+
         return mTestList.size();
     }
 
@@ -63,16 +66,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
             mCartBinding = itemView;
 
-            itemView.deleteImage.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    mCartClickListener.onClick(getLayoutPosition());
-                    mTestList.remove(getLayoutPosition());
-                    notifyDataSetChanged();
-
-                }
-            });
+            itemView.deleteImage.setOnClickListener(v -> mCartClickListener.onClick(getLayoutPosition()));
         }
     }
 }

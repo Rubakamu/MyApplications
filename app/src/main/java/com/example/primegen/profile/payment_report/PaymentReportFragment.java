@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.primegen.R;
+import com.example.primegen.cart.CartSingleTon;
 import com.example.primegen.databinding.FragmentPaymentReportBinding;
 
 public class PaymentReportFragment extends Fragment {
@@ -19,6 +20,9 @@ public class PaymentReportFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mPaymentReportBinding = FragmentPaymentReportBinding.inflate(inflater);
+        if (CartSingleTon.getInstance(requireActivity()).readItemCount() != 0) {
+            mPaymentReportBinding.tvCount.setText(String.valueOf(CartSingleTon.getInstance(requireActivity()).readItemCount()));
+        }
         initView();
         setBackPress();
         return mPaymentReportBinding.getRoot();

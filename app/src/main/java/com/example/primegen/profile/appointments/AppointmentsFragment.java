@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.example.primegen.R;
+import com.example.primegen.cart.CartSingleTon;
 import com.example.primegen.databinding.FragmentAppontmentsBinding;
 
 
@@ -21,6 +22,12 @@ public class AppointmentsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         mAppointmentsBinding = FragmentAppontmentsBinding.inflate(inflater);
+
+        if (CartSingleTon.getInstance(requireActivity()).readItemCount() != 0) {
+            mAppointmentsBinding.tvCount.setText(String.valueOf(CartSingleTon.getInstance(requireActivity()).readItemCount()));
+        }
+
+
         initView();
         setBackPress();
         return mAppointmentsBinding.getRoot();

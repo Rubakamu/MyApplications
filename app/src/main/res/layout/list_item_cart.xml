@@ -7,7 +7,7 @@
         android:id="@+id/test_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_16"
+        android:layout_margin="@dimen/dp_6"
         android:outlineSpotShadowColor="@color/primary_layout_bg"
         android:visibility="visible"
         app:cardBackgroundColor="@color/white"

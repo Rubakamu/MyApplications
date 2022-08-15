@@ -39,7 +39,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_16"
                         android:layout_marginTop="@dimen/dp_10"
-                        android:text="@string/select_appointment_date"
+                        android:text="@string/select_date_time"
                         android:textColor="@color/primary_color"
                         android:textSize="@dimen/sp_20"
                         android:textStyle="bold"
@@ -55,7 +55,6 @@
                     android:padding="@dimen/dp_16"
                     app:cardCornerRadius="@dimen/dp_6"
                     app:cardElevation="@dimen/dp_6"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cvDate">
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -85,51 +84,6 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp_16"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/dp_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardDate">
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/time"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_50"
-                    app:cardBackgroundColor="@color/white"
-                    app:cardElevation="@dimen/dp_10"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dp_16"
-                        android:layout_marginTop="@dimen/dp_10"
-                        android:text="@string/select_appointment_time"
-                        android:textColor="@color/primary_color"
-                        android:textSize="@dimen/sp_20"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvInclude" />
-
-                </com.google.android.material.card.MaterialCardView>
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_time"
                     android:layout_width="match_parent"
@@ -139,7 +93,7 @@
                     app:cardCornerRadius="@dimen/dp_6"
                     app:cardElevation="@dimen/dp_6"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/time">
+                    app:layout_constraintTop_toBottomOf="@+id/card_date">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tvTimeText"
@@ -172,6 +126,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
 
 
 

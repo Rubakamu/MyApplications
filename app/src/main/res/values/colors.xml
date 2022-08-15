@@ -24,6 +24,9 @@
     <color name="image_color">#516E95</color>
     <color name="layout_bg">#F3F8FF</color>
     <color name="primary_layout_bg">#1479FF</color>
+    <color name="primary_logo">#5B308A</color>
+    <color name="primegen_logo">#0063AC</color>
+    <color name="primegen_pink">#F22283</color>
     <color name="red">#E8425E</color>
 
 </resources>

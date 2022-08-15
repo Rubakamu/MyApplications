@@ -5,7 +5,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="684dp"
+        android:layout_height="match_parent"
         android:background="@color/layout_bg">
 
         <com.google.android.material.card.MaterialCardView
@@ -28,6 +28,7 @@
                 android:layout_marginBottom="@dimen/dp_6"
                 android:outlineSpotShadowColor="#073673"
                 android:padding="@dimen/dp_26"
+                android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="@dimen/dp_6"
                 app:cardElevation="@dimen/dp_10"
@@ -76,107 +77,130 @@
                     android:src="@drawable/ic_cart"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:background="@color/white"
+                    android:textColor="@color/red"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="2" />
             </androidx.cardview.widget.CardView>
 
 
         </com.google.android.material.card.MaterialCardView>
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/dp_16"
-            app:cardBackgroundColor="@color/white"
-            app:cardElevation="@dimen/dp_16"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/topCard">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
-
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/prescriptionImage"
-                    android:layout_width="@dimen/dp_180"
-                    android:layout_height="@dimen/dp_250"
-                    android:layout_marginTop="@dimen/dp_16"
-                    android:layout_marginBottom="@dimen/dp_16"
-                    android:background="@drawable/ic_pre_bg"
-                    android:src="@drawable/ic_pre"
-                    android:padding="@dimen/dp_10"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </androidx.cardview.widget.CardView>
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/preList"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="@dimen/dp_16"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/dp_16"
-            app:cardElevation="@dimen/dp_10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btnNext"
-            app:layout_constraintTop_toBottomOf="@+id/cardView">
-
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/tips"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_50"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_16"
                     app:cardBackgroundColor="@color/white"
-                    app:cardElevation="@dimen/dp_8"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:cardElevation="@dimen/dp_16"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvPayment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/dp_16"
-                        android:layout_marginTop="@dimen/dp_16"
-                        android:text="@string/uploaded_prescription"
-                        android:textColor="@color/primary_color"
-                        android:textSize="@dimen/sp_14"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent" />
-
-                </com.google.android.material.card.MaterialCardView>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvPrescription"
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/prescriptionImage"
+                            android:layout_width="@dimen/dp_180"
+                            android:layout_height="@dimen/dp_250"
+                            android:layout_marginTop="@dimen/dp_16"
+                            android:layout_marginBottom="@dimen/dp_16"
+                            android:background="@drawable/ic_pre_bg"
+                            android:padding="@dimen/dp_10"
+                            android:src="@drawable/ic_pre"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/preList"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_margin="@dimen/dp_6"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp_16"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/dp_16"
+                    app:cardElevation="@dimen/dp_10"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tips"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:listitem="@layout/list_item_prescription" />
+                    app:layout_constraintTop_toBottomOf="@+id/cardView">
 
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/tips"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp_50"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardElevation="@dimen/dp_8"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvPayment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp_16"
+                                android:layout_marginTop="@dimen/dp_16"
+                                android:text="@string/uploaded_prescription"
+                                android:textColor="@color/primary_color"
+                                android:textSize="@dimen/sp_14"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </com.google.android.material.card.MaterialCardView>
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvPrescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp_6"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tips"
+                            app:layout_constraintVertical_bias="0.0"
+                            tools:listitem="@layout/list_item_prescription" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
+        </ScrollView>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnNext"
@@ -191,8 +215,8 @@
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/sp_20"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
 
