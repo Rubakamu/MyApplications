@@ -78,15 +78,19 @@ public class AddToCartFragment extends Fragment {
         String json = mPrefs.getString("MyObject", "");
         user = gson.fromJson(json, User.class);
 
+        if (!CartSingleTon.getInstance(requireActivity()).read().isEmpty()){
+            mCartBinding.emptyLayout.setVisibility(View.GONE);
+            mCartBinding.bookingLayout.setVisibility(View.VISIBLE);
 
+        }else {
+            mCartBinding.emptyLayout.setVisibility(View.VISIBLE);
+            mCartBinding.bookingLayout.setVisibility(View.GONE);
+        }
         if (getArguments() != null) {
             location = getArguments().getString("location");
             locationId = getArguments().getString("locationId");
             mCartBinding.tvLocationName.setText(location);
         }
-
-
-
         setAdapter();
         initView();
         setDateTime();
@@ -101,17 +105,13 @@ public class AddToCartFragment extends Fragment {
             CartSingleTon.getInstance(requireActivity())
                     .remove(testList.get(position).getTestprofileID());
             testList.remove(position);
-
+            Navigation.findNavController(mCartBinding.getRoot()).navigate(R.id.action_add_to_cart);
             cartAdapter.notifyDataSetChanged();
 
         };
-
         mCartBinding.rvTestList.setLayoutManager(new LinearLayoutManager(requireActivity()));
         cartAdapter = new CartAdapter(requireActivity(), testList, cartClickListener);
         mCartBinding.rvTestList.setAdapter(cartAdapter);
-
-
-
 
     }
 
@@ -148,14 +148,6 @@ public class AddToCartFragment extends Fragment {
 
 
 
-        if (testList != null){
-            mCartBinding.emptyLayout.setVisibility(View.GONE);
-            mCartBinding.bookingLayout.setVisibility(View.VISIBLE);
-
-        }else {
-            mCartBinding.emptyLayout.setVisibility(View.VISIBLE);
-            mCartBinding.bookingLayout.setVisibility(View.GONE);
-        }
 
         mCartBinding.btnBookings.setOnClickListener(v ->
                 Navigation.findNavController(mCartBinding.getRoot()).navigate(R.id.action_test_list));
@@ -173,13 +165,15 @@ public class AddToCartFragment extends Fragment {
         mCartBinding.tvLandmark.setText(user.getCustomerLandmark());
         //mCartBinding.tvState.setText("Tamil Nadu");
 
-        if (mCartBinding.tvAddress.getText().toString().isEmpty()) {
+//        mCartBinding.tvAddress.getText().toString().isEmpty();
+        if (user.getCustomerAddressline1().isEmpty()) {
             mCartBinding.cardaddAddress.setVisibility(View.VISIBLE);
             mCartBinding.cardPersonal.setVisibility(View.GONE);
-        } else if (!mCartBinding.tvAddress.getText().toString().isEmpty()) {
+        } else{
             mCartBinding.cardaddAddress.setVisibility(View.GONE);
             mCartBinding.cardPersonal.setVisibility(View.VISIBLE);
         }
+
         mCartBinding.cardaddAddress.setOnClickListener(v -> {
             setSharedPreferenceValue();
             Navigation.findNavController(mCartBinding.getRoot()).navigate(R.id.action_my_address);
@@ -284,6 +278,7 @@ public class AddToCartFragment extends Fragment {
 
         });
 
+
     }
 
     private void setRelative() {
@@ -291,18 +286,18 @@ public class AddToCartFragment extends Fragment {
         viewModel.familyList(user.getCustomerID()).observe(requireActivity(), familyResponse -> {
 
             if (getActivity() != null && isAdded() && isVisible()) {
+                if (familyResponse.getFamily() != null) {
+                    mFamily.addAll(familyResponse.getFamily());
+                }
 
-                mFamily.addAll(familyResponse.getFamily());
+                for (int i = 0; i < mFamily.size(); i++) {
+                    Family family = mFamily.get(i);
+                    relative.add(family.getRelativeID() + ". " + family.getRelativeName());
+
+                    adapter = new FamilySpinnerAdapter(requireActivity(), i, mFamily);
+                    mCartBinding.edtRelative.setAdapter(adapter);
+                }
             }
-
-            for (int i = 0; i < mFamily.size(); i++) {
-                Family family = mFamily.get(i);
-                relative.add(family.getRelativeID() + ". " + family.getRelativeName());
-
-                adapter = new FamilySpinnerAdapter(requireActivity(), i, mFamily);
-                mCartBinding.edtRelative.setAdapter(adapter);
-            }
-
 
             mCartBinding.edtRelative.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override

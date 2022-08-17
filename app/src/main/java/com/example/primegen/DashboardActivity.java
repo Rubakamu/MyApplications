@@ -42,24 +42,25 @@ public class DashboardActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbar);
         binding.toolbar.setTitleTextColor(getResources().getColor(R.color.primary_color));
 
-
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null) {
-            boolean isCartLogin = bundle.getBoolean("cart_login");
-
-            if (isCartLogin) {
-
-                setSharedPreferenceValue();
-                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_add_to_cart);
-            }
-
-        }
+//
+//        Bundle bundle = getIntent().getExtras();
+//        if (bundle != null) {
+//            boolean isCartLogin = bundle.getBoolean("cart_login");
+//
+//            if (isCartLogin) {
+//
+//                setSharedPreferenceValue();
+//                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_add_to_cart);
+//            }
+//
+//        }
 
         Intent mIntent = getIntent();
         if (mIntent != null) {
             if (mIntent.getExtras().getBoolean("isRegister")) {
                 isRegister = mIntent.getExtras().getBoolean("isRegister");
-            } else if (mIntent.getExtras().getBoolean("isLogin")) {
+            }
+            else if (mIntent.getExtras().getBoolean("isLogin")) {
                 isLogin = mIntent.getExtras().getBoolean("isLogin");
             }else if (mIntent.getExtras().getBoolean("isSuccess")) {
                 isSuccess = mIntent.getExtras().getBoolean("isSuccess");
@@ -77,24 +78,21 @@ public class DashboardActivity extends AppCompatActivity {
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_userprofile)
                 .build();
 
-        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.nav_host_fragment_activity_dashboard);
-
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_activity_dashboard);
         //NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_dashboard);
         NavController navController = navHostFragment.getNavController();
         NavigationUI.setupActionBarWithNavController(DashboardActivity.this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-
-
         binding.toolbar.setNavigationOnClickListener(view -> {
             navController.navigateUp();
         });
-
         binding.navView.setOnItemSelectedListener(item -> {
             View view = binding.getRoot().findViewById(R.id.nav_host_fragment_activity_dashboard);
 
             if (item.getItemId() == R.id.navigation_home) {
-                Navigation.findNavController(view).navigate(R.id.navigation_home);
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("isRegister",isRegister);
+                Navigation.findNavController(view).navigate(R.id.navigation_home,bundle);
             } else if (item.getItemId() == R.id.navigation_dashboard) {
                 setSharedPreferenceValue();
                 Navigation.findNavController(view).navigate(R.id.navigation_dashboard);

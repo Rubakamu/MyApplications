@@ -22,7 +22,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder
     private Context mContext;
     private List<Test> mTestList;
     private TestClickListener mTestClickListener;
-    private boolean isExpanded = true;
+    private boolean isAdded;
 
 
     public TestAdapter(Context context, List<Test> testList, TestClickListener testClickListener) {
@@ -64,10 +64,11 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder
         } else {
             mobileViewHolder.binding.testDetailCard.setVisibility(View.GONE);
         }
+
         if (CartSingleTon.getInstance(mContext).read() != null) {
             for (int i = 0; i < CartSingleTon.getInstance(mContext).read().size(); i++) {
                 if (CartSingleTon.getInstance(mContext).read().get(i).
-                        getTestprofileID().contains(test.getTestprofileID())) {
+                        getTestprofileID().equals(test.getTestprofileID())) {
                     mobileViewHolder.binding.btnAddToCart.setText("Added");
                     mobileViewHolder.binding.btnAddToCart.setBackgroundDrawable(ContextCompat.getDrawable(mContext, R.drawable.btn_bg_cart_pink));
 
@@ -75,6 +76,8 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.TestViewHolder
 
             }
         }
+
+
     }
 
     @Override

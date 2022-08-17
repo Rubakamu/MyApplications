@@ -184,7 +184,7 @@ public class MyAccountFragment extends Fragment {
                     String json = gson.toJson(user);
                     prefsEditor.putString("MyObject", json);
                     prefsEditor.commit();
-                    //Navigation.findNavController(myAccountBinding.getRoot()).navigate(R.id.action_user_profile);
+                    Navigation.findNavController(myAccountBinding.getRoot()).navigate(R.id.action_home);
                     Toast.makeText(requireActivity(), baseResponse.getMessage(), Toast.LENGTH_SHORT).show();
 
                 } else {

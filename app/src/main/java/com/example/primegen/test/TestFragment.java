@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -64,9 +66,9 @@ public class TestFragment extends Fragment {
 
 
         testClickListener = position -> {
-            CartSingleTon.getInstance(requireActivity()).
-                    setTestList(testList.get(position));
+            CartSingleTon.getInstance(requireActivity()).setTestList(testList.get(position));
             CartSingleTon.getInstance(requireActivity()).addedNewTest(true);
+
             if (CartSingleTon.getInstance(requireActivity()).readItemCount() != 0) {
                 mTestBinding.tvCount.setText(String.valueOf(CartSingleTon.getInstance(requireActivity()).readItemCount()));
             }
@@ -183,17 +185,6 @@ public class TestFragment extends Fragment {
         });
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        mTestBinding = null;
-    }
-
     public void setLocation() {
 
         viewModel.getAllBrachData().observe(requireActivity(), branchResponse -> {
@@ -208,7 +199,9 @@ public class TestFragment extends Fragment {
             btnLocation.setOnClickListener(v -> {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+                View dialogView = getLayoutInflater().inflate(R.layout.dialog_custom, null);
                 builder.setTitle("Select Location");
+                builder.setView(dialogView);
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(requireActivity(), android.R.layout.simple_list_item_1);
                 arrayAdapter.clear();
                 if (branchList != null) {
@@ -217,12 +210,23 @@ public class TestFragment extends Fragment {
                         arrayAdapter.add(branches.getBranchID() + ". " + branches.getBranchName());
                     }
                 }
+
                 builder.setAdapter(arrayAdapter, (dialog, which) -> {
-                    mTestBinding.tvLocationName.setText(branchList.get(which).getBranchName());
+
+                    String strName = branchList.get(which).getBranchName();
+                    mTestBinding.tvLocationName.setText(strName);
                     locationId = branchList.get(which).getBranchID();
+                    AlertDialog.Builder builderInner = new AlertDialog.Builder(requireActivity());
+                    builderInner.setMessage(strName);
+                    builderInner.setTitle("Your Selected Item is");
+
                 });
-                builder.setPositiveButton("Cancel", (dialog, which) -> dialog.dismiss());
+
+
+                builder.setPositiveButton("Cancel", (dialog, which) ->
+                        dialog.dismiss());
                 AlertDialog alert = builder.create();
+                alert.setCanceledOnTouchOutside(true);
                 alert.show();
             });
         });

@@ -33,7 +33,6 @@ public class CartSingleTon {
     }
 
     public ArrayList<Test> getTestList() {
-
         return new ArrayList<>(testList);
     }
 
@@ -58,6 +57,7 @@ public class CartSingleTon {
     }
 
     public boolean isTestAddedNewly() {
+
         return isTestAddedNewly;
     }
 

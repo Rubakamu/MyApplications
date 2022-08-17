@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -24,6 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.primegen.R;
 import com.example.primegen.cart.CartSingleTon;
+import com.example.primegen.databinding.FirstTimeUserBinding;
 import com.example.primegen.databinding.FragmentDashBoardBinding;
 import com.example.primegen.test.Test;
 import com.example.primegen.test.TestClickListener;
@@ -35,6 +37,7 @@ import java.util.List;
 public class DashBoardFragment extends Fragment {
 
     private FragmentDashBoardBinding mDashBoardBinding;
+    private FirstTimeUserBinding mFirstTimeBinding;
     ItemClickListener itemClickListener;
     private CartSingleTon cartSingleTon;
     private List<Test> testList;
@@ -49,8 +52,9 @@ public class DashBoardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         mDashBoardBinding = FragmentDashBoardBinding.inflate(inflater);
-        viewModel = new ViewModelProvider(this).get(PrimeViewModel.class);
 
+        mFirstTimeBinding = FirstTimeUserBinding.inflate(inflater);
+        viewModel = new ViewModelProvider(this).get(PrimeViewModel.class);
 
 
         testClickListener = position -> {
@@ -82,16 +86,7 @@ public class DashBoardFragment extends Fragment {
             }
         };
 
-        if (isAdded() && isVisible()) {
-            if (getArguments() != null) {
-                if (getArguments().getBoolean("isRegister")) {
-                    isRegister = getArguments().getBoolean("isRegister");
-                    if (isRegister) {
-                        navigate();
-                    }
-                }
-            }
-        }
+
         if (CartSingleTon.getInstance(requireActivity()).readItemCount() != 0) {
             mDashBoardBinding.tvCount.setText(String.valueOf(CartSingleTon.getInstance(requireActivity()).readItemCount()));
         }
@@ -102,8 +97,48 @@ public class DashBoardFragment extends Fragment {
         getDashBoardList();
         getTestList();
 
+        setFirstTimeUser();
 
-        return mDashBoardBinding.getRoot();
+        if (isAdded()) {
+            isRegister = requireActivity().getIntent().getExtras().getBoolean("isRegister");
+        }
+
+            return mDashBoardBinding.getRoot();
+
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        if (isRegister) {
+            navigate();
+        }
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        isRegister=false;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        isRegister=false;
+    }
+
+    private void setFirstTimeUser() {
+
+        mDashBoardBinding.btnBookATest.setOnClickListener(v ->
+                Navigation.findNavController(mDashBoardBinding.getRoot()).navigate(R.id.action_home_to_home_detail));
+        mDashBoardBinding.btnUpdateProfile.setOnClickListener(v ->
+                navigate());
+        mDashBoardBinding.btnHome.setOnClickListener(v -> {
+            mDashBoardBinding.firstTimeUser.setVisibility(View.GONE);
+            mDashBoardBinding.clHome.setVisibility(View.VISIBLE);
+        });
 
     }
 
